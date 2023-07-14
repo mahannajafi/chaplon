@@ -25,6 +25,11 @@ import {
 } from "../../store/features/auth/authSlice";
 import axiosInstance from "../../hooks/axios";
 import Address from "../Address/Address";
+import AboutMe from "../AboutMe/AboutMe";
+import Orders from "../Order/Orders";
+import Message from "../Message/Message";
+import Statistics from "../Statistics/Statistics";
+import UserDesigns from "../Design/Design";
 
 const DashboardLayout = ({ children }) => {
   const redux = useSelector((state) => state.auth);
@@ -53,6 +58,11 @@ const DashboardLayout = ({ children }) => {
           <div className="dashboard__items">
             <div className="header">{redux?.dashboard}</div>
             {redux?.dashboard === "ادرس های من" ? <Address /> : ""}
+              {redux?.dashboard === "اطلاعات کاربری" ? <AboutMe /> : ""}
+              {redux?.dashboard === "طرح های من" ? <UserDesigns /> : ""}
+              {redux?.dashboard === "پیام های من" ? <Message /> : ""}
+              {redux?.dashboard === "سفارش های من" ? <Orders /> : ""}
+              {redux?.dashboard === "آمار فروش" ? <Statistics /> : ""}
           </div>
           <div className="dashboard__menu">
             <div className="dashboard__userCon">
