@@ -18,6 +18,11 @@ import LogoutIcon from "@mui/icons-material/Logout";
 import EqualizerIcon from "@mui/icons-material/Equalizer";
 import MapsHomeWorkIcon from "@mui/icons-material/MapsHomeWork";
 import DesignServicesIcon from "@mui/icons-material/DesignServices";
+import Orders from "../Order/Orders";
+import UserDesigns from "../Design/Design";
+import Statistics from "../Statistics/Statistics";
+import Message from "../Message/Message";
+
 import {
   getUserData,
   logOut,
@@ -53,6 +58,10 @@ const DashboardLayout = ({ children }) => {
           <div className="dashboard__items">
             <div className="header">{redux?.dashboard}</div>
             {redux?.dashboard === "ادرس های من" ? <Address /> : ""}
+              {redux?.dashboard === "سفارش های من" ? <Orders /> : ""}
+              {redux?.dashboard === "طرح های من" ? <UserDesigns /> : ""}
+              {redux?.dashboard === "آمار فروش" ? <Statistics /> : ""}
+              {redux?.dashboard === "پیام های من" ? <Message /> : ""}
           </div>
           <div className="dashboard__menu">
             <div className="dashboard__userCon">
