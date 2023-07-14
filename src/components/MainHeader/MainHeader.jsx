@@ -24,29 +24,32 @@ const MainHeader = () => {
       setIsLogin(true);
     }
   }, []);
-  // const onInfo = (data) => {
-  //   // navigate("/login  ");
-  //   axiosInstance
-  //     .get(`/api/v1/accounts/get_my_info/`)
-  //     .then((res) => {
-  //       // console.log(res);
-  //       // console.log(res.data);
-  //       console.log(res.data);
-  //       dispatch(getUserData(res.data));
-  //     })
-  //     .then((res) => {
-  //       // Navigate("/");
-  //       setIsLogin(true);
-  //     })
-  //     .catch((res) => {
-  //       console.log(res.data);
-  //       console.log("kir shodam");
-  //       // setError('phone_number',{type:'requr',message})
-  //     });
-  // };
-  // useEffect(() => {
-  //   onInfo();
-  // }, []);
+  const [user, setUser] = useState();
+  const onInfo = (data) => {
+    // navigate("/login  ");
+    axiosInstance
+      .get(`/api/v1/accounts/get_my_info/`)
+      .then((res) => {
+        // console.log(res);
+        // console.log(res.data);
+        console.log(res.data);
+        setUser(res?.data?.role);
+        // dispatch(getUserData(res.data));
+      })
+      .then((res) => {
+        // Navigate("/");
+        console.log(user);
+        setIsLogin(true);
+      })
+      .catch((res) => {
+        console.log(res.data);
+        console.log("kir shodam");
+        // setError('phone_number',{type:'requr',message})
+      });
+  };
+  useEffect(() => {
+    onInfo();
+  }, []);
   return (
     <div className="mainHeader__container">
       <div className="mainHeader__right">
@@ -84,7 +87,10 @@ const MainHeader = () => {
             </Button>
           </Link>
         )}
-        <Link to="/Learn" style={{ textDecoration: "none" }}>
+        <Link
+          to={user === "CUS" ? "/dashboard" : "/learn"}
+          style={{ textDecoration: "none" }}
+        >
           <Button
             sx={{
               bgcolor: "var(--second-color)",

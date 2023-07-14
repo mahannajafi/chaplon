@@ -1,0 +1,28 @@
+.headerPardakht {
+  display: flex;
+  justify-content: center;
+  gap: 300px;
+}
+.headerPardakht__item {
+  color: var(--main-color);
+  background-color: var(--second-color);
+  padding: 10px 10px;
+  border-radius: 30px;
+  text-decoration: none;
+}
+.headerPardakht__item-center {
+  color: var(--second-color);
+  background-color: var(--main-color);
+  padding: 10px 100px;
+  border-radius: 30px;
+}
+.headerPardakht__title {
+  margin-bottom: 20px;
+  border-bottom: 1px solid #000;
+  padding-bottom: 10px;
+  margin-top: 20px;
+}
+
+.address__container {
+  margin-bottom: 50px;
+}

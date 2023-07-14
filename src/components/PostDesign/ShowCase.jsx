@@ -26,7 +26,14 @@ const ShowCase = ({ product }) => {
             متخصصان را می طلبد.
           </p>
           <button className="showcase__limits-description__btn">
-            دانلود طرح خام
+            <a
+              style={{ color: "var(--second-color)", textDecoration: "none" }}
+              href="https://cdn11.bigcommerce.com/s-405b0/images/stencil/590x590/products/107/10322/5000B_White_Front__97777.1603145244.jpg?c=2"
+              download="blanck"
+              target="_blank"
+            >
+              دانلود طرح خام
+            </a>
           </button>
         </div>
       </div>

@@ -5,7 +5,7 @@ import emptyBasketImage from "../../assets/imgs/empty-basket.png";
 
 function BasketContent() {
   const products = JSON.parse(localStorage.getItem("basket"));
-  const [isEmpty, setEmpty] = useState(products.length == 0 ? true : false);
+  const [isEmpty, setEmpty] = useState(products?.length == 0 ? true : false);
 
   return (
     <div className="basket">

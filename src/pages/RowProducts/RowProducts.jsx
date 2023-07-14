@@ -25,12 +25,7 @@ const RowProducts = () => {
     <Layout>
       <div dir="rtl" className="Choose__container">
         <div className="Choose__items">
-          <div className="Choose__titles">
-            ترتیب نمایش:
-            <div className="Choose__titleI">ارزان ترین </div>
-            <div className="Choose__titleI">گران ترین </div>
-            <div className="Choose__titleI">جدیدترین </div>
-          </div>
+          <div className="Choose__titles"> محصولات خام :</div>
           <div className="Choose__Boxes">
             {product?.map((data) => {
               return (

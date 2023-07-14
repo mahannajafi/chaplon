@@ -1,41 +1,43 @@
 import "./DesignInfo.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
+import { useNavigate } from "react-router-dom";
+import axiosInstance from "../../hooks/axios";
 
-const DesignInfo = ({ product }) => {
-  const availableProductColors = [
-    "blue",
-    "cyan",
-    "green",
-    "red",
-    "orange",
-    "purple",
-    "pink",
-  ];
+const DesignInfo = ({ product, state }) => {
+  console.log(state);
+  const navigate = useNavigate();
+  const availableProductColors = state?.colors?.map((e) => e?.code);
   const [postProduct, setPostProduct] = useState({
     name: "",
     desc: "",
-    design_image:
-      "https://chuplon-back.iran.liara.run/media/photo_2023-07-08_21-06-43_Ol96aYt.jpg",
-    prototype_image:
-      "https://chuplon-back.iran.liara.run/media/photo_2023-07-08_21-06-43_Ol96aYt.jpg",
+    design_image: "",
+    prototype_image: "",
     price: 0,
     blank_product: product?.id,
     designer: 2,
     provider: 1,
-    colors: [10],
+    colors: [10, 9],
   });
 
-  const [productName, setProductName] = useState("");
-  const [productDescription, setProductDescription] = useState("");
   const [productColors, setProductColors] = useState([]);
   const [minPrice, setMinPrice] = useState("");
   const [finalPrice, setFinalPrice] = useState("");
-  const [maxPrice, setMaxPrice] = useState("");
   const [designFile, setDesignFile] = useState(null);
-  const [designedProductFile, setDesignedProductFile] = useState(null);
+  const [selectedImage1, setSelectedImage1] = useState(null);
 
+  const handleImageChange = (event) => {
+    const file = event.target.files[0];
+    console.log(file);
+    const formData = new FormData();
+    formData.append("image", file);
+    axiosInstance
+      .post("/api/v1/store/post-product-image", formData)
+      .then((res) => {
+        console.log(res);
+      });
+  };
   const handleProductColorSelection = (event, color) => {
     event.preventDefault();
 
@@ -47,9 +49,16 @@ const DesignInfo = ({ product }) => {
       );
     }
   };
-
+  useEffect(() => {
+    setPostProduct({ ...postProduct, blank_product: product?.id });
+  }, [product]);
   const handleSubmit = (event) => {
     event.preventDefault();
+    setPostProduct({ ...postProduct, provider: state?.provider?.id });
+    // axiosInstance.post("/api/v1/store/products/", postProduct).then(() => {
+    //   console.log("done");
+    // });
+    navigate("/");
     console.log(postProduct);
   };
 
@@ -126,18 +135,15 @@ const DesignInfo = ({ product }) => {
           <div className="design-info__form__vertical-line"></div>
 
           <label className="design-info__form__label">
-            قیمت&nbsp;نهایی&nbsp;:
+            قیمت&nbsp;نهایی&nbsp;: بین مبلغ {state?.price} و{" "}
+            {+state?.price + 30000}
             <input
-              type="range"
-              min="0"
-              max="50000"
-              step="500"
-              dir="ltr"
+              type="text"
               value={postProduct.price}
               onChange={(event) =>
                 setPostProduct({ ...postProduct, price: event.target.value })
               }
-              className="design-info__form__label__input final-price-input"
+              className="design-info__form__label__input product-name-input"
             />
             <div>{finalPrice}</div>
           </label>
@@ -151,8 +157,8 @@ const DesignInfo = ({ product }) => {
               طرح&nbsp;:
               <input
                 type="file"
-                value={designFile}
-                onChange={(event) => setDesignFile(event.target.files[0])}
+                accept="image/*"
+                onChange={handleImageChange}
                 className="design-info__form__label__input custom-file-input"
               />
             </label>
@@ -161,10 +167,9 @@ const DesignInfo = ({ product }) => {
               محصول&nbsp;طراحی&nbsp;شده&nbsp;:
               <input
                 type="file"
-                value={designedProductFile}
-                onChange={(event) =>
-                  setDesignedProductFile(event.target.files[0])
-                }
+                // onChange={(event) =>
+                //   setDesignedProductFile(event.target.files[0])
+                // }
                 className="design-info__form__label__input custom-file-input"
               />
             </label>

@@ -44,6 +44,7 @@ const ProductSellerBox = ({ product, id }) => {
               <Link
                 className="design-this-product-btn__link"
                 to={`/Design/${id}`}
+                state={product}
               >
                 طراحی این محصول
               </Link>

@@ -11,6 +11,13 @@ const Address = () => {
   const [isClose, setClose] = useState(true);
   const [id, setId] = useState("1");
   const [addresses, setAddresses] = useState();
+  const [addAddress, setAddAdress] = useState({
+    detail: "",
+    post_code: "",
+    phone_number: "",
+    is_default: true,
+    city: 1,
+  });
   const firstFetch = () => {
     axiosInstance.get(`/api/v1/accounts/my_addresses/`).then((res) => {
       console.log(res?.data?.results);
@@ -123,35 +130,61 @@ const Address = () => {
           <form className="addAddressForm">
             <label className="addAddressLabel">
               نام و نام خانوادگی گیرنده
-              <input />
+              <input className="design-info__form__label__input product-name-input" />
             </label>
             <label className="addAddressLabel">
               شماره همراه گیرنده
-              <input />
+              <input
+                className="design-info__form__label__input product-name-input"
+                onChange={(e) =>
+                  setAddAdress({ ...addAddress, phone_number: e.target.value })
+                }
+              />
             </label>
-            <label className="addAddressLabel">
+            {/* <label className="addAddressLabel">
               عنوان آدرس
               <input />
-            </label>
+            </label> */}
             <label className="addAddressLabel">
               کد پستی
-              <input />
-            </label>
-            <label className="addAddressLabel addressLabel">
-              آدرس
-              <input />
+              <input
+                className="design-info__form__label__input product-name-input"
+                onChange={(e) =>
+                  setAddAdress({ ...addAddress, post_code: e.target.value })
+                }
+              />
             </label>
             <label className="addAddressLabel">
+              آدرس
+              <input
+                className="design-info__form__label__input product-name-input"
+                onChange={(e) =>
+                  setAddAdress({ ...addAddress, detail: e.target.value })
+                }
+              />
+            </label>
+            {/* <label className="addAddressLabel">
               پلاک
               <input />
             </label>
             <label className="addAddressLabel">
               واحد
               <input />
-            </label>
+            </label> */}
           </form>
         </div>
-        <button className="addAddressButton">ثبت آدرس</button>
+        <button
+          onClick={() => {
+            console.log(addAddress);
+            axiosInstance
+              .post(`/api/v1/accounts/my_addresses/`, addAddress)
+              .then(() => firstFetch());
+            setClose(true);
+          }}
+          className="addAddressButton"
+        >
+          ثبت آدرس
+        </button>
       </div>
     </div>
   );

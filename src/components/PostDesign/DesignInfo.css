@@ -130,6 +130,7 @@ textarea.design-info__form__label__input {
 
 .design-info__form__colors-container {
   padding-left: 20px;
+  overflow-y: hidden;
 }
 
 .design-info__form__colors-container__color {
@@ -139,6 +140,7 @@ textarea.design-info__form__label__input {
   border-radius: 100%;
   box-shadow: 2px 2px 5px #00000099;
   cursor: pointer;
+  overflow-y: hidden;
   margin: 5px;
 }
 

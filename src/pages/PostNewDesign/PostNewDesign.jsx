@@ -6,11 +6,12 @@ import DesignInfo from "../../components/PostDesign/DesignInfo";
 
 import { useEffect, useState } from "react";
 import axiosInstance from "../../hooks/axios";
-import { useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 
 const PostNewDesign = () => {
   const { slug } = useParams();
-  console.log(slug);
+  let { state } = useLocation();
+
   const [product, setProduct] = useState();
   const firstFetch = () => {
     axiosInstance.get(`/api/v1/design/blank_product/${slug}/`).then((res) => {
@@ -26,7 +27,7 @@ const PostNewDesign = () => {
     <Layout>
       <div dir="rtl">
         <ShowCase product={product} />
-        <DesignInfo product={product} />
+        <DesignInfo state={state} product={product} />
       </div>
     </Layout>
   );

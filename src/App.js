@@ -10,6 +10,7 @@ import RowProducts from "./pages/RowProducts/RowProducts";
 import SingleProduct from "./pages/SingleProduct/SingleProduct";
 import Products from "./pages/Products/Products";
 import Basket from "./pages/Basket/Basket";
+import Pardakht from "./pages/Pardakht/Pardakht";
 
 function App() {
   return (
@@ -30,6 +31,8 @@ function App() {
 
         <Route path="/dashboard" element={<DashboardLayout />}></Route>
         <Route path="/basket" element={<Basket />}></Route>
+        <Route path="/Pardakht" element={<Pardakht />}></Route>
+
       </Routes>
     </BrowserRouter>
   );

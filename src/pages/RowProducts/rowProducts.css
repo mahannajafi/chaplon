@@ -106,6 +106,8 @@ input:checked + .slider:before {
   padding-left: 500px;
   border-bottom: 1px solid black;
   padding-bottom: 7px;
+  font-size: 24px;
+  font-weight: bold;
 }
 .Choose__titleI {
   font-size: 14px;
