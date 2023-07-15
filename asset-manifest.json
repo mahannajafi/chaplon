@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/react-gh-pages/static/css/main.cd8351d9.css",
+    "main.js": "/react-gh-pages/static/js/main.b278d40b.js",
+    "static/media/footer.png": "/react-gh-pages/static/media/footer.5ce12811c1ee00d02c7c.png",
+    "static/media/Mask1.png": "/react-gh-pages/static/media/Mask1.e8f82f26a83d5972e52b.png",
+    "static/media/Mask3.png": "/react-gh-pages/static/media/Mask3.76f948858dd720bd5cfe.png",
+    "static/media/Mask2.png": "/react-gh-pages/static/media/Mask2.cfe56e4a8538da485d39.png",
+    "static/media/design.png": "/react-gh-pages/static/media/design.6836d8115f636d4573b7.png",
+    "static/media/main-pic.png": "/react-gh-pages/static/media/main-pic.951f05f164db56c19c37.png",
+    "static/media/empty-basket.png": "/react-gh-pages/static/media/empty-basket.04ba552d23071aaf7840.png",
+    "static/media/swishert.png": "/react-gh-pages/static/media/swishert.b442c29ca71714e36e4f.png",
+    "static/media/upgrade.png": "/react-gh-pages/static/media/upgrade.30926286fe7ed8b2ca7a.png",
+    "static/media/home.png": "/react-gh-pages/static/media/home.12453c0accfa021e2aba.png",
+    "static/media/IRANSansX-Bold.woff": "/react-gh-pages/static/media/IRANSansX-Bold.d640a35b819021eae62f.woff",
+    "static/media/IRANSansX-Regular.woff": "/react-gh-pages/static/media/IRANSansX-Regular.0e69b53f502a0a73887d.woff",
+    "index.html": "/react-gh-pages/index.html",
+    "main.cd8351d9.css.map": "/react-gh-pages/static/css/main.cd8351d9.css.map",
+    "main.b278d40b.js.map": "/react-gh-pages/static/js/main.b278d40b.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.cd8351d9.css",
+    "static/js/main.b278d40b.js"
+  ]
+}
